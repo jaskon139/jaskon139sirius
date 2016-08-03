@@ -1,0 +1,17 @@
+# circle.yml
+machine:
+  # 環境改成 docker
+  services:
+    - docker
+
+dependencies:
+  override:
+    # 建構方式使用 docker build
+    - docker build -t hello-ci-workflow .
+
+test:
+  override:
+    - ./node_modules/.bin/mocha
+    # 使用 curl 測試 docker 是否有順利執行 node
+    - docker run -d -p 3000:3000 hello-ci-workflow; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:3000
