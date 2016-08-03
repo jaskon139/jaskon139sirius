@@ -7,8 +7,8 @@ machine:
 dependencies:
   override:
     # 建構方式使用 docker build
-    - docker build -t hello-ci-workflow . 
-      timeout:480
+    - docker build -t hello-ci-workflow . :
+      timeout : 480
 
 test:
   override:
