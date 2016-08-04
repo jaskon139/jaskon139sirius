@@ -7,7 +7,7 @@ machine:
 dependencies:
   override:
     # 建構方式使用 docker build
-    - docker build -t hello-ci-workflow .:
+    - docker build -t hello-ci-workflow/helloA .:
            timeout : 9600000
 
 test:
@@ -22,4 +22,4 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push circleci/elasticsearch
+      - docker push hello-ci-workflow/helloA
