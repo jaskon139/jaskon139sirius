@@ -28,8 +28,8 @@ ADD . /usr/local/lucida
 WORKDIR "/usr/local/lucida/tools"
 RUN /usr/bin/make
 WORKDIR "/usr/local/lucida/lucida"
-RUN /usr/bin/make
-RUN /bin/bash commandcenter/apache/install_apache.sh
+#RUN /usr/bin/make
+#RUN /bin/bash commandcenter/apache/install_apache.sh
 
 
 ### function docker-flush(){
